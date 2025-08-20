@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personality Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    .image-carousel {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem auto;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .carousel-img {
+      width: 240px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+    }
+
+    .section-image {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: 2rem auto;
+      animation: fadeUp 1s ease-in-out;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-icons a {
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      color: #444;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #e14d2a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Personality Predictor</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+      <li><a href="#results">Results</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Discover Your Personality</h1>
+    <p>Get instant predictions and deep insights using our ML-powered Personality Predictor</p>
+    <div class="hero-buttons">
+      <a href="/normal" class="btn primary">Normal Prediction</a>
+      <a href="/detailed" class="btn outline">Detailed Prediction</a>
+    </div>
+  </section>
+
+  <!-- Animated Image Slider -->
+  <div class="image-carousel" id="carouselContainer">
+  </div>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About the Project</h2>
+    <img class="section-image" src="{{ url_for('static', filename='about.png') }}" alt="About Image">
+    <p>This website uses machine learning to predict your personality traits. Whether you're taking a short quiz or providing detailed inputs, our dual-model setup provides accurate and insightful results tailored to your data.</p>
+  </section>
+
+  <!-- Quiz Section -->
+  <section id="quiz">
+    <h2>Start the Quiz</h2>
+    <img class="section-image" src="static/quiz.png" alt="Quiz Image">
+    <p>Answer a few quick questions and find out your personality type. Our model analyzes your responses to provide a meaningful personality classification.</p>
+  </section>
+
+  <!-- Results Section -->
+  <section id="results">
+    <h2>Your Results</h2>
+    <img class="section-image" src="static/result.jpg" alt="Results Image">
+    <p>After submitting your responses, you'll receive a detailed prediction along with suggestions and interpretation based on psychological models and data science insights.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Personality Predictor | All Rights Reserved</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/" target="_blank"><i class="bi bi-youtube"></i></a>
+        <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://x.com/" target="_blank"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Image Carousel Script -->
+  <script>
+    const carouselImages = [
+      "static/carousel/1.png", "static/carousel/2.png", "static/carousel/3.png", "static/carousel/4.png",
+      "static/carousel/5.png", "static/carousel/6.png", "static/carousel/7.png", "static/carousel/8.png"
+    ];
+
+    let currentStart = 0;
+
+    function updateCarousel() {
+      const container = document.getElementById("carouselContainer");
+      container.innerHTML = "";
+
+      for (let i = 0; i < 4; i++) {
+        const img = document.createElement("img");
+        img.className = "carousel-img";
+        img.src = carouselImages[(currentStart + i) % carouselImages.length];
+        img.alt = `Image ${(currentStart + i + 1)}`;
+        container.appendChild(img);
+      }
+
+      currentStart = (currentStart + 4) % carouselImages.length;
+    }
+
+    updateCarousel(); // Initial load
+    setInterval(updateCarousel, 4000);
+  </script>
+</body>
+</html>

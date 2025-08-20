@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Normal Personality Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/predict.css') }}" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="page-header">
+    <h1>Normal Personality Prediction</h1>
+    <p>Answer a few quick questions to find out your personality type.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="form-container">
+    <form action="/normal" method="POST" class="prediction-form">
+
+
+      <div class="form-group">
+        <label for="time_alone">Time Spent Alone (hours/day):</label>
+        <input type="number" id="time_alone" name="time_alone" min="0" required>
+      </div>
+
+      <div class="form-group">
+        <label for="stage_fear">Do you have stage fear?</label>
+        <select id="stage_fear" name="stage_fear" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="social_event">Social Events Attended (per month):</label>
+        <input type="number" id="social_event" name="social_event" min="0" required>
+      </div>
+
+      <div class="form-group">
+        <label for="going_outside">How often do you go outside? (per week):</label>
+        <input type="number" id="going_outside" name="going_outside" min="0" required>
+      </div>
+
+      <div class="form-group">
+        <label for="drained">Do you feel drained after socializing?</label>
+        <select id="drained" name="drained" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="friend_circle">How big is your friend circle?</label>
+        <input type="number" id="friend_circle" name="friend_circle" min="0" required>
+      </div>
+
+      <div class="form-group">
+        <label for="post_freq">How often do you post on social media? (per week):</label>
+        <input type="number" id="post_freq" name="post_freq" min="0" required>
+      </div>
+
+      <button type="submit" class="btn primary">Predict Personality</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Personality Predictor | Built with Flask</p>
+  </footer>
+
+</body>
+</html>

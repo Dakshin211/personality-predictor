@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Personality Type</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e14d2a, #fdc830);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+    .result-box {
+      background: #fff;
+      color: #333;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+    .result-box img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+    .result-box h2 {
+      font-size: 28px;
+      color: #e14d2a;
+    }
+    .accuracy {
+      margin: 15px 0;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .tips {
+      background: #ffe6d5;
+      border-left: 4px solid #e14d2a;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      text-align: left;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="result-box animate__animated animate__fadeInUp">
+    <img src="{{ url_for('static', filename=personality.lower() + '.png') }}" alt="{{ personality }}">
+    <h2>You are an <strong>{{ personality }}</strong></h2>
+    <p class="accuracy">Prediction Accuracy: {{ accuracy }}%</p>
+    <div class="tips">
+      <h4>Tips & Suggestions:</h4>
+      <p>{{ tips }}</p>
+    </div>
+  </div>
+</body>
+</html>
