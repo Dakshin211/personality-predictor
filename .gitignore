@@ -1,0 +1,47 @@
+# -----------------
+# Python
+# -----------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# -----------------
+# Virtual Environment
+# -----------------
+venv/
+env/
+.venv/
+ENV/
+
+# -----------------
+# Environment Variables
+# -----------------
+.env
+*.env
+
+# -----------------
+# Logs & Databases
+# -----------------
+*.log
+*.sqlite3
+*.db
+
+# -----------------
+# Jupyter
+# -----------------
+.ipynb_checkpoints/
+
+# -----------------
+# System Files
+# -----------------
+.DS_Store
+Thumbs.db
+
+# -----------------
+# Frontend (optional)
+# -----------------
+node_modules/
+dist/
+build/
