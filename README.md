@@ -12,7 +12,7 @@ It analyzes user responses to determine whether they are an **Introvert**, **Amb
 
 
 🔗 Live Project:
-https://hitcms.netlify.app/
+https://dakshin119.pythonanywhere.com
 
 ---
 
