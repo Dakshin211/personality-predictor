@@ -10,6 +10,10 @@
 **Personality Predictor** is a web-based project built using **HTML, CSS, Python, and Flask**, powered by **Machine Learning**.  
 It analyzes user responses to determine whether they are an **Introvert**, **Ambivert**, or **Extrovert**, providing both **Normal** and **Detailed Analysis** with personalized insights.
 
+
+🔗 Live Project:
+https://hitcms.netlify.app/
+
 ---
 
 ## 🧩 Features
